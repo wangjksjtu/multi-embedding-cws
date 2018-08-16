@@ -1,6 +1,6 @@
 # Multiple Embeddings for Chinese Word Segmentation
 
-_Created by [Jingkang Wang](http://wangjk.me), [Jianing Zhou]() and [Gonshen Liu]()._
+_Created by [Jingkang Wang](http://wangjk.me), [Jianing Zhou](https://github.com/zhjjn) and [Gonshen Liu]()._
 
 ## Introduction
 This work is based on our [arXiv report](https://arxiv.org/abs/1808.04963). In this paper, we introduce multiple character embeddings including ___Pinyin Romanization___ and ___Wubi Input___, both of which are easily accessible and effective in depicting semantics of characters. To fully leverage them, we propose a novel shared Bi-LSTM-CRF model, which fuses multiple features efficiently. Extensive experiments on five corpora demonstrate that extra embeddings help obtain a significant improvement. Specifically, we achieves the state-of-the-art performance in __AS and CITYU corpora with F1 scores 96.9 and 97.3__, respectively.
@@ -120,7 +120,7 @@ python PRF_Score.py Results/crf_result_msr.txt Corpora/msr/test_gold.txt
 Result files are put in directory **Results/**.
 
 ## Acknowledgements
-This code is based on the this repo ([All-Conv-Keras](https://github.com/MateLabs/All-Conv-Keras). Many thanks to the author.
+This code is based on the this repo ([LSTM-CNN-CWS](https://github.com/MeteorYee/LSTM-CNN-CWS). Many thanks to the author.
 
 ## License
 Our code is released under MIT License.
