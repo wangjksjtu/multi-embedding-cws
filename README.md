@@ -120,7 +120,7 @@ python PRF_Score.py Results/crf_result_msr.txt Corpora/msr/test_gold.txt
 Result files are put in directory **Results/**.
 
 ## Acknowledgements
-This code is based on the this repo ([LSTM-CNN-CWS](https://github.com/MeteorYee/LSTM-CNN-CWS). Many thanks to the author.
+This code is based on the this repo ([LSTM-CNN-CWS](https://github.com/MeteorYee/LSTM-CNN-CWS)). Many thanks to the author.
 
 ## License
 Our code is released under MIT License.
