@@ -1,5 +1,11 @@
 # Multiple Embeddings for Chinese Word Segmentation
-Bi-LSTM+CRF for Chinese word segmentation
+
+_Created by [Jingkang Wang](http://wangjk.me), [Jianing Zhou]() and [Gonshen Liu]()._
+
+## Introduction
+This work is based on our [arXiv report](https://arxiv.org/abs/1808.04963). In this paper, we introduce multiple character embeddings including ___Pinyin Romanization___ and ___Wubi Input___, both of which are easily accessible and effective in depicting semantics of characters. To fully leverage them, we propose a novel shared Bi-LSTM-CRF model, which fuses multiple features efficiently. Extensive experiments on five corpora demonstrate that extra embeddings help obtain a significant improvement. Specifically, we achieves the state-of-the-art performance in __AS and CITYU corpora with F1 scores 96.9 and 97.3__, respectively.
+
+In this repository, we release code and data for reproducing the results given in the [paper](https://arxiv.org/pdf/1808.04963.pdf).
 
 ## Requirements
 - Python 2.7 or 3.5+
@@ -7,16 +13,27 @@ Bi-LSTM+CRF for Chinese word segmentation
 - CUDA 8.0+ (For GPU)
 - Python Libraries: numpy, cPickle, __pypinyin__
 
+## Citation
+If you find our work useful in your research, please consider citing:
+
+	@article{multi-embed2018,
+	  title={Multiple Character Embeddings for Chinese Word Segmentation},
+	  author={Jingkang Wang and Jianing Zhou and Gongshen Liu},
+	  journal={arXiv preprint arXiv:1808.04963},
+	  year={2018}
+	}
+
 ## Reproduce Results
 ### 1. Data Preparation
 #### Preprocessing
 
 ```
-python preprocess.py --rootDir \<ROOTDIR> --corpusAll Corpora/all.txt --resultFile pre_chars_for_w2v.txt
+python preprocess.py --rootDir <ROOTDIR> --corpusAll Corpora/all.txt --resultFile pre_chars_for_w2v.txt
 python getpinyin.py
 python getwubi.py
 ```
-    ROOTDIR is the absolute path of your corpus. In the data directory, it's the rootCorpora. Run *python preprocess.py -h* to see more details.
+    
+__ROOTDIR__ is the absolute path of your corpus. In the data directory, it's the rootCorpora. Run `python preprocess.py -h` to see more details.
 
 #### Word2vec Training
 ```
@@ -65,10 +82,10 @@ python ./CWSTrain/nopy_fc_lstm3_crf_train.py --train_data_path Corpora/msr --tes
 
 python ./CWSTrain/nowubi_fc_lstm3_crf_train.py --train_data_path Corpora/msr --test_data_path Corpora/msr --word2vec_path char_vec.txt --pinyin2vec_path pinyin_vec.txt --log_dir Logs_nowubi/msr --embedding_size 256 --batch_size 256
 ```
-If you want to train on other corpora, please change the train_data_path, test_data_path and make a new log directory. Arguments of *lstm_cnn_train.py* are set by **tf.app.flags**.
+If you want to train on other corpora, please change the train_data_path, test_data_path and make a new log directory. Arguments of __\*\_lstm\*\_crf\_train.py__ are set by **tf.app.flags**.
 
 ### 3. Word Segmentation
-#### Freeze graph <br>
+#### Freeze graph
 ```
 python tools/freeze_graph.py --input_graph Logs_fc_lstm3/msr/graph.pbtxt --input_checkpoint Logs_fc_lstm3/msr/model.ckpt --output_node_names "input_placeholder_char,input_placeholder_pinyin,input_placeholder_wubi,transitions,Reshape_11" --output_graph Models/fc_lstm3_crf_model_msr.pbtxt
 
@@ -78,7 +95,7 @@ python tools/freeze_graph.py --input_graph Logs_nowubi/msr/graph.pbtxt --input_c
 ```
 Build model for segmentation.
 
-####　Dump Vocabulary
+#### Dump Vocabulary
 
 ```
 python tools/vob_dump.py --char_vecpath char_vec.txt --pinyin_vecpath pinyin_vec.txt --wubi_vecpath wubi_vec.txt --char_dump_path Models/char_dump.pk --pinyin_dump_path Models/pinyin_dump.pk --wubi_dump_path Models/wubi_dump.pk
@@ -98,6 +115,12 @@ python tools/fc_lstm3_crf_seg_nowubi.py --test_data Corpora/msr/test_raw.txt --m
 ```
 #### PRF Scoring
 ```
-python PRF_Score.py Results/crf_result_msr.txt Corpora/msr/test_gold.txt*
+python PRF_Score.py Results/crf_result_msr.txt Corpora/msr/test_gold.txt
 ```
 Result files are put in directory **Results/**.
+
+## Acknowledgements
+This code is based on the this repo ([All-Conv-Keras](https://github.com/MateLabs/All-Conv-Keras). Many thanks to the author.
+
+## License
+Our code is released under MIT License.
