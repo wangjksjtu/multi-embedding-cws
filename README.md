@@ -57,12 +57,12 @@ python SentHandler/replace_unk.py pre_vocab_wubi.txt pre_wubi_for_w2v.txt wubi_f
 ./third_party/word2vec -train pinyin_for_w2v.txt -output pinyin_vec300.txt -size 300 -sample 1e-4 -negative 0 -hs 1 -binary 0 -iter 5
 ./third_party/word2vec -train wubi_for_w2v.txt -output wubi_vec300.txt -size 300 -sample 1e-4 -negative 0 -hs 1 -binary 0 -iter 5
 ```
-First, the file **word2vec.c** in `third_party` directory should be compiled (see third_party/compile_w2v.sh). Second, the word2vec tool counts the characters which have a frequency more than 3 and saves them into file **pre_vocab.txt**. After replacing with **"UNK"** the words that are not in pre_vocab.txt. Finally, word2vec training begins.
+First, the file **word2vec.c** in `third_party` directory should be compiled (see `third_party/compile_w2v.sh`). Also, you could directly add executive permission to the `third_party/word2vec` using `chmod +x third_party/word2vec`. Second, the word2vec tool counts the characters which have a frequency more than 3 and saves them into file **pre_vocab.txt**. After that, the scripts replace the words that are not in `pre_vocab.txt` with **"UNK"**. Finally, word2vec training process begins.
 
 #### Data Partition
 ```
-python pre_train.py --corpusAll Corpora/pku/train-all.txt --char_vecpath char_vec.txt --pinyin_vecpath pinyin_vec.txt --wubi_vecpath wubi_vec.txt --train_file Corpora/pku/ --test_file Corpora/pku/ --test_file_raw Corpora/pku/test_raw.txt --test_file_gold Corpora/pku/test_gold.txt*
-python pre_train.py --corpusAll Corpora/pku300/train-all.txt --char_vecpath char_vec300.txt --pinyin_vecpath pinyin_vec300.txt --wubi_vecpath wubi_vec300.txt --train_file Corpora/pku300/ --test_file Corpora/pku300/ --test_file_raw Corpora/pku300/test_raw.txt --test_file_gold Corpora/pku300/test_gold.txt*
+python pre_train.py --corpusAll Corpora/msr/train-all.txt --char_vecpath char_vec.txt --pinyin_vecpath pinyin_vec.txt --wubi_vecpath wubi_vec.txt --train_file Corpora/msr/ --test_file Corpora/msr/ --test_file_raw Corpora/msr/test_raw.txt --test_file_gold Corpora/msr/test_gold.txt
+python pre_train.py --corpusAll Corpora/msr300/train-all.txt --char_vecpath char_vec300.txt --pinyin_vecpath pinyin_vec300.txt --wubi_vecpath wubi_vec300.txt --train_file Corpora/msr300/ --test_file Corpora/msr300/ --test_file_raw Corpora/msr300/test_raw.txt --test_file_gold Corpora/msr300/test_gold.txt
 ```
 
 To see HELP for the training script:
