@@ -28,12 +28,12 @@ If you find our work useful in your research, please consider citing:
 #### Preprocessing
 
 ```
-python preprocess.py --rootDir <ROOTDIR> --corpusAll Corpora/all.txt --resultFile pre_chars_for_w2v.txt
+python preprocess.py --rootDir Corpora --corpusAll Corpora/all.txt --resultFile pre_chars_for_w2v.txt
 python getpinyin.py
 python getwubi.py
 ```
     
-__ROOTDIR__ is the absolute path of your corpus. In the data directory, it's the rootCorpora. Run `python preprocess.py -h` to see more details.
+If you want to use your own data, please replace `Corpora` to the path of your corpus. Run `python preprocess.py -h` to see more details.
 
 #### Word2vec Training
 ```
