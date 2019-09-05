@@ -1,6 +1,6 @@
 # Multiple Embeddings for Chinese Word Segmentation
 
-_Created by [Jingkang Wang](http://wangjk.me), [Jianing Zhou](https://github.com/zhjjn) and [Gongshen Liu](https://github.com/wangjksjtu/multi-embedding-cws)._
+_Created by [Jingkang Wang*](http://www.cs.toronto.edu/~wangjk/), [Jianing Zhou*](https://zhjjn.github.io)，[Jie Zhou](https://github.com/SannyZhou) and [Gongshen Liu](https://github.com/wangjksjtu/multi-embedding-cws)._
 
 ## Introduction
 This work is based on our [arXiv report](https://arxiv.org/abs/1808.04963). In this paper, we introduce multiple character embeddings including ___Pinyin Romanization___ and ___Wubi Input___, both of which are easily accessible and effective in depicting semantics of characters. To fully leverage them, we propose a novel shared Bi-LSTM-CRF model, which fuses multiple features efficiently. Extensive experiments on five corpora demonstrate that extra embeddings help obtain a significant improvement. Specifically, we achieves the state-of-the-art performance in __AS and CITYU corpora with F1 scores 96.9 and 97.3__, respectively.
@@ -121,6 +121,23 @@ Result files are put in directory **Results/**.
 
 ## Acknowledgements
 This code is based on the this repo ([LSTM-CNN-CWS](https://github.com/MeteorYee/LSTM-CNN-CWS)). Many thanks to the author.
+
+## Citations
+If you find this research work is helpful and relevant, please cite
+
+```
+@inproceedings{Zhou19,
+  author    = {Jianing Zhou and
+               Jingkang Wang and
+	       Jie Zhou and
+               Gongshen Liu},
+  title     = {Multiple Character Embeddings for Chinese Word Segmentation},
+  booktitle = {{ACL} {(2)}},
+  pages     = {210--216},
+  publisher = {Association for Computational Linguistics},
+  year      = {2019}
+}
+```
 
 ## License
 Our code is released under MIT License.
