@@ -3,9 +3,9 @@
 _Created by [Jingkang Wang*](http://www.cs.toronto.edu/~wangjk/), [Jianing Zhou*](https://zhjjn.github.io)，[Jie Zhou](https://github.com/SannyZhou) and [Gongshen Liu](https://github.com/wangjksjtu/multi-embedding-cws)._
 
 ## Introduction
-This work is based on our [arXiv report](https://arxiv.org/abs/1808.04963). In this paper, we introduce multiple character embeddings including ___Pinyin Romanization___ and ___Wubi Input___, both of which are easily accessible and effective in depicting semantics of characters. To fully leverage them, we propose a novel shared Bi-LSTM-CRF model, which fuses multiple features efficiently. Extensive experiments on five corpora demonstrate that extra embeddings help obtain a significant improvement. Specifically, we achieves the state-of-the-art performance in __AS and CITYU corpora with F1 scores 96.9 and 97.3__, respectively.
+In this paper, we introduce multiple character embeddings including ___Pinyin Romanization___ and ___Wubi Input___, both of which are easily accessible and effective in depicting semantics of characters. To fully leverage them, we propose a novel shared Bi-LSTM-CRF model, which fuses multiple features efficiently. Extensive experiments on five corpora demonstrate that extra embeddings help obtain a significant improvement. Specifically, we achieves the state-of-the-art performance in __AS and CITYU corpora with F1 scores 96.9 and 97.3__, respectively.
 
-In this repository, we release code and data for reproducing the results given in the [paper](https://arxiv.org/pdf/1808.04963.pdf).
+In this repository, we release code and data for reproducing the results given in the [paper](https://www.aclweb.org/anthology/P19-2029) (ACL-SRW 2019).
 
 ## Requirements
 - Python 2.7 or 3.5+
