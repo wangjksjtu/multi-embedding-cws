@@ -14,14 +14,21 @@ In this repository, we release code and data for reproducing the results given i
 - Python Libraries: numpy, cPickle, __pypinyin__
 
 ## Citation
-If you find our work useful in your research, please consider citing:
+If you find our work is helpful and relevant, please consider citing
 
-	@article{multi-embed2018,
-	  title={Multiple Character Embeddings for Chinese Word Segmentation},
-	  author={Jingkang Wang and Jianing Zhou and Gongshen Liu},
-	  journal={arXiv preprint arXiv:1808.04963},
-	  year={2018}
-	}
+```
+@inproceedings{multi-embed2019,
+  author    = {Jianing Zhou and
+               Jingkang Wang and
+	       Jie Zhou and
+               Gongshen Liu},
+  title     = {Multiple Character Embeddings for Chinese Word Segmentation},
+  booktitle = {{ACL} {(2)}},
+  pages     = {210--216},
+  publisher = {Association for Computational Linguistics},
+  year      = {2019}
+}
+```
 
 ## Reproduce Results
 ### 1. Data Preparation
@@ -121,23 +128,6 @@ Result files are put in directory **Results/**.
 
 ## Acknowledgements
 This code is based on the this repo ([LSTM-CNN-CWS](https://github.com/MeteorYee/LSTM-CNN-CWS)). Many thanks to the author.
-
-## Citations
-If you find this research work is helpful and relevant, please cite
-
-```
-@inproceedings{Zhou19,
-  author    = {Jianing Zhou and
-               Jingkang Wang and
-	       Jie Zhou and
-               Gongshen Liu},
-  title     = {Multiple Character Embeddings for Chinese Word Segmentation},
-  booktitle = {{ACL} {(2)}},
-  pages     = {210--216},
-  publisher = {Association for Computational Linguistics},
-  year      = {2019}
-}
-```
 
 ## License
 Our code is released under MIT License.
